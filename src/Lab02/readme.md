@@ -122,14 +122,14 @@ In Lab01 you did something similar by providing ACR credentials to the Azure App
 
 To do this for Kubernetes you use the `kubectl` command to create a secret that contains the credentials, and then provide the name of that secret in the `deploy.yaml` file.
 
-Here are the steps:
+> The bash commands used in this step won't all work in Git Bash, so a real Linux CLI is required; such as the one provided by Windows-Subsystem-for-Linux (WSL). IF YOU DON'T HAVE WSL then you can run the individual commands from `creds.sh` in Azure itself via the "Try It" button on [this web page](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-service-principal).
+
+Here are the steps if you have WSL:
 
 1. **Using WSL** change directory to src/Lab02
 1. `chmod +x creds.sh`
 1. `./creds.sh myrepository`
 1. Make note of the resulting service principal id and password
-
-> The bash commands used in `creds.sh` won't all work in Git Bash, so a real Linux CLI is required; such as the one provided by Windows-Subsystem-for-Linux (WSL). IF YOU DON'T HAVE WSL then you can run this command in Azure itself via the "Try It" button on [this web page](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-service-principal).
 
 The output should be something like this:
 
@@ -201,7 +201,7 @@ In a CLI window, change directory to src/Lab02/Start/Gateway and type these comm
 
 ```text
 kubectl apply -f deploy.yaml
-kbuectl apply -f service.yaml
+kubectl apply -f service.yaml
 ```
 
 You can apply those same files to the cluster multiple times, but subsequent calls won't do anything because the current state will already match the desired state.
